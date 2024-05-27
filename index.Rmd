@@ -2,70 +2,54 @@
 title: "A3: Incarceration"
 output: html_document
 ---
-
 ### Introduction
 
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+In this analysis, I want to examine how prison trends and demographic proportions vary by urbanicity as it is part of the broader issues of crime and incarceration in the US.  Urbanicity in this dataset refers to the classification of counties into urban, suburban, small/mid, and rural areas based on population density and other factors. As each of these types of areas face unique social, economic, and infrastructural challenges that influence crime rates and incarceration, examining how prison rates differ across these categories will allow us to gain insight into the underlying causes of crime and the effectiveness of the criminal justice system in different contexts.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+The maximum proportion of the population of a US county in prison over all the years which the dataset spans is 0.3378378, in McPherson County NE, in 2006. 
 
-These will likely be calculated using your DPLYR skills, answering questions such as: 
+When we distinguish between the urbancity of each county in the dataset we get that the maximum proportion of the population of a US county in prison is:  
 
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
+- 0.3378378, in McPherson County NE, in 2006, for rural areas
 
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
+- 0.04332694, in Crockett County, NE, in 1983 for small/mid areas
+
+- 0.03642545,in Fayette County, TN, in 1983, for suburban areas
+
+- 0.01759245 in Baltimore, ME, in 1999, for urban areas
+
+These numbers demonstrate how much the proportion of the population in prison can differ per the urbancity of an identified area. Overall, the proportion of the population in prison vs the broader proportion has a mean of 0.003392925 and a median of 0.002730052. 
 
 ### The Dataset
 
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+The dataset, "U.S. Prison Population by County and State," was collected by the Vera Institute of Justice. It was generated using data collected primarily by the U.S. Department of Justice Bureau of Justice Statistics and was done so in order to provide a comprehensive overview of US prison populations to increase transparency in the criminal justice system, support policy-making and reform efforts, facilitate research into incarceration trends, their impacts, and further disparities that exist within this system. There are 153811 observations, that span from 1970 to 2018, and 36 features in this dataset. 
 
+Some ethical considerations to keep in mind while looking at this dataset, is the biases that both exist within the broader criminal justice system, as well as specifically in the reporting of this information to government agencies, off which this dataset is based off of and by extension would be reflective of. Thus, it would be important to ethically consider how one would approach this data in the broader historical context of incarceration in the US and especially its disproportionate impact on racial minorities to ensure that further analysis does not perpetuate existing biases or reinforce systemic inequalities. 
+
+These ethical considerations of this dataset also serve as its limitations, as the biased nature of the data we are employing needs to be address. Some other limitations of this dataset include inconsistencies within the data itself as it both spans over all US counties and almost a 40 year time period where which data collection methods, reporting standards, and definitions may differ. These temporal and geographic inconsistencies and gaps within the dataset may lead to difficulties in making accurate comparisons and identifying trends. Moreover, some of the data, particularly from earlier years, are estimates rather than exact counts, as certain measures such as detailed demographic breakdowns were not recorded, which became common pratice later on, introducing another source of potential error. Additionally, changes in definitions and categorizations over time, such as shifts in racial and ethnic classifications, can further complicate the interpretation of long-term trends. These limitations must be acknowledged and carefully managed to ensure the validity and ethical integrity of any conclusions drawn from the dataset.
 
 ### Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, code = readLines("./chart1.R")}
+source("./chart1.R")
 ```
+
+The chart was designed using a combination of lines and points to effectively show trends over time while emphasizing actual data values at each year. Color coding by urbanicity makes it easy to distinguish between the trends for urban, suburban, rural, and small/mid categories. The data reveals that the proportion of people in prison has generally increased over the years for all urbanicity categories. Notably, the urban category shows a significant rise until the late 1990s, after which it stabilizes and then slightly decreases. In contrast, the rural, small/mid, and suburban categories exhibit a more steady increase over the years. This chart clearly demonstrates that urban areas have historically had a higher proportion of people in prison compared to other categories, although the gap appears to narrow in recent years.
 
 ### Variable Comparison Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+```{r, echo = FALSE, code = readLines("./chart2.R")}
+source("./chart2.R")
+```
 
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
+The scatter plot above illustrates the relationship between the total population and the prison population across different urbanicities (urban, suburban, rural, and small/mid). Each point on the graph represents a specific urbanicity category for a given year, color-coded for easy differentiation. The x-axis denotes the total population, while the y-axis represents the population in prison. The scatter plot was chosen to reveal the correlation between the total population and the prison population across different urbanicity categories, as it visualizes how these two variables related to each other and allows for an easy comparison between urbancity categories, further distinguished by color coding. Some insights that can be drawn from this chart is that there is a clear positive correlation between the total population and the prison population for all urbanicities, with this peaking for urban areas. 
 
 ### Map
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+```{r, echo = FALSE, code = readLines("./map.R")}
+source("./map.R")
+```
 
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
-
+The map visualizes the proportion of the population in prison by state using a continuous color scale. States with higher proportions of their population in prison are represented in lighter shades, while states with lower proportions are in darker shades. By mapping this data it provides a clear visual representation of the spatial distribution of prison populations across states. For example, Texas seems to have a relativetly high proption of its population in prison compared to other states. 
