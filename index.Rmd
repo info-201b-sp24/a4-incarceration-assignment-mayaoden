@@ -32,7 +32,7 @@ These ethical considerations of this dataset also serve as its limitations, as t
 
 ### Trends Over Time Chart
 
-```{r, echo = FALSE, code = readLines("./chart1.R")}
+```{r, echo = FALSE, code = readLines("./chart1.R"), message = FALSE, fig.align = 'center'}
 source("./chart1.R")
 ```
 
@@ -40,7 +40,7 @@ The chart was designed using a combination of lines and points to effectively sh
 
 ### Variable Comparison Chart
 
-```{r, echo = FALSE, code = readLines("./chart2.R")}
+```{r, echo = FALSE, code = readLines("./chart2.R"), fig.align = 'center'}
 source("./chart2.R")
 ```
 
@@ -48,7 +48,7 @@ The scatter plot above illustrates the relationship between the total population
 
 ### Map
 
-```{r, echo = FALSE, code = readLines("./map.R")}
+```{r, echo = FALSE, code = readLines("./map.R"), fig.align = 'center'}
 source("./map.R")
 ```
 
