@@ -16,9 +16,9 @@ When we distinguish between the urbancity of each county in the dataset we get t
 
 - 0.04332694, in Crockett County, NE, in 1983 for small/mid areas
 
-- 0.03642545,in Fayette County, TN, in 1983, for suburban areas
+- 0.03642545, in Fayette County, TN, in 1983, for suburban areas
 
-- 0.01759245 in Baltimore, ME, in 1999, for urban areas
+- 0.01759245, in Baltimore, ME, in 1999, for urban areas
 
 These numbers demonstrate how much the proportion of the population in prison can differ per the urbancity of an identified area. Overall, the proportion of the population in prison vs the broader proportion has a mean of 0.003392925 and a median of 0.002730052. 
 
